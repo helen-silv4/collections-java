@@ -1,7 +1,6 @@
 package set.pesquisa;
 
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 public class ListaTarefas {
@@ -26,7 +25,11 @@ public class ListaTarefas {
             }
             tarefaSet.remove(tarefaParaRemover);
         } else {
-            throw new RuntimeException("O conjunto SET está vazio!");
+            System.out.println("O conjunto SET está vazio!");
+        }
+
+        if (tarefaParaRemover == null){
+            System.out.println("Tarefa não encontrada na lista!");
         }
     }
 
@@ -71,6 +74,15 @@ public class ListaTarefas {
                 break;
             }
         }
+
+        if (tarefaConcluida != null) {
+            if(!tarefaConcluida.isStatus()) {
+                tarefaConcluida.setStatus(true);
+            }
+        } else {
+            System.out.println("Tarefa não encontrada na lista!");
+        }
+
         return tarefaConcluida;
     }
 
@@ -83,11 +95,24 @@ public class ListaTarefas {
                 break;
             }
         }
+
+        if (tarefaPendente != null) {
+            if(tarefaPendente.isStatus()) {
+                tarefaPendente.setStatus(false);
+            }
+        } else {
+            System.out.println("Tarefa não encontrada na lista!");
+        }
+
         return tarefaPendente;
     }
 
     public void limparListaTarefas(){
-        tarefaSet.clear();
+        if (tarefaSet.isEmpty()){
+            System.out.println("A lista SET já está vazia!");
+        } else {
+            tarefaSet.clear();
+        }
     }
 
     public static void main(String[] args) {
@@ -103,6 +128,7 @@ public class ListaTarefas {
         listaTarefas.exibirTarefas();
 
         listaTarefas.removerTarefa("Tarefa 4");
+        listaTarefas.removerTarefa(null);
         listaTarefas.exibirTarefas();
 
         System.out.println("Número de tarefas: " + listaTarefas.contarTarefas());
@@ -116,5 +142,10 @@ public class ListaTarefas {
 
         listaTarefas.limparListaTarefas();
         listaTarefas.exibirTarefas();
+
+        listaTarefas.marcarTarefaPendente("Tarefa 8");
+        listaTarefas.marcarTarefaConcluida("Tarefa 10");
+
+        System.out.println("Número de tarefas: " + listaTarefas.contarTarefas());
     }
 }
