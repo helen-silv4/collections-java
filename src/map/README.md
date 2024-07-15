@@ -109,9 +109,3 @@ Crie uma classe chamada "LivrariaOnline" que representa uma livraria online. Ess
 - `obterLivroMaisCaro()`: Retorna o livro mais caro disponível na livraria.
 - `exibirLivroMaisBarato()`: Retorna o livro mais barato disponível na livraria.
 </p>
-
----
-
-### Dúvidas e Suporte
-
-Caso você tenha alguma dúvida, problema ou sugestão, fique à vontade para abrir uma issue no repositório. Espero conseguir te ajudar! (:
